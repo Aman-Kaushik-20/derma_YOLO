@@ -12,6 +12,10 @@ def encode_image_to_base64(image):
     encoded_image = base64.b64encode(buffer).decode('utf-8')
     return f"data:image/jpeg;base64,{encoded_image}"
 
+@app.route('/', methods=["GET"])
+def home():
+    return " Welcome to YOLO DERMA"
+
 @app.route('/detect', methods=['POST'])
 def detect_objects():
     if 'image' not in request.files:
